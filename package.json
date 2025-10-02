@@ -1,6 +1,6 @@
 {
   "name": "@bettergov/kapwa",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -18,7 +18,8 @@
     "format": "prettier --write .",
     "wrangler": "wrangler",
     "preview": "vite preview --config vite.config-site.ts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prepublish": "npm run build-lib"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
