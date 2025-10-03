@@ -6,6 +6,9 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "dev": "concurrently -p \"[{name}]\" -n \"CLIENT,STORYBOOK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run start:client\" \"npm run start:storybook\"",
     "start:client": "vite --config vite.config-site.ts",
@@ -19,7 +22,7 @@
     "wrangler": "wrangler",
     "preview": "vite preview --config vite.config-site.ts",
     "prepare": "husky",
-    "prepublish": "npm run build-lib"
+    "prepublishOnly": "npm run build-lib"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -117,43 +120,43 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
     },
     "./utils": {
       "import": "./dist/utils.js",
-      "types": "./dist/utils.d.ts",
-      "require": "./dist/utils.cjs"
+      "require": "./dist/utils.cjs",
+      "types": "./dist/utils.d.ts"
     },
     "./banner": {
       "import": "./dist/banner/index.tsx.js",
-      "types": "./dist/banner/index.d.ts",
-      "require": "./dist/banner/index.tsx.cjs"
+      "require": "./dist/banner/index.tsx.cjs",
+      "types": "./dist/banner/index.d.ts"
     },
     "./button": {
       "import": "./dist/button/index.tsx.js",
-      "types": "./dist/button/index.d.ts",
-      "require": "./dist/button/index.tsx.cjs"
+      "require": "./dist/button/index.tsx.cjs",
+      "types": "./dist/button/index.d.ts"
     },
     "./button/hooks": {
       "import": "./dist/button/hooks/index.ts.js",
-      "types": "./dist/button/hooks/index.d.ts",
-      "require": "./dist/button/hooks/index.ts.cjs"
+      "require": "./dist/button/hooks/index.ts.cjs",
+      "types": "./dist/button/hooks/index.d.ts"
     },
     "./card": {
       "import": "./dist/card/index.tsx.js",
-      "types": "./dist/card/index.d.ts",
-      "require": "./dist/card/index.tsx.cjs"
+      "require": "./dist/card/index.tsx.cjs",
+      "types": "./dist/card/index.d.ts"
     },
     "./input": {
       "import": "./dist/input/index.tsx.js",
-      "types": "./dist/input/index.d.ts",
-      "require": "./dist/input/index.tsx.cjs"
+      "require": "./dist/input/index.tsx.cjs",
+      "types": "./dist/input/index.d.ts"
     },
     "./label": {
       "import": "./dist/label/index.tsx.js",
-      "types": "./dist/label/index.d.ts",
-      "require": "./dist/label/index.tsx.cjs"
+      "require": "./dist/label/index.tsx.cjs",
+      "types": "./dist/label/index.d.ts"
     }
   },
   "typesVersions": {
