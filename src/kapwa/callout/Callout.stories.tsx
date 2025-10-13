@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Banner } from './index';
+import { Callout } from './index';
 
-const meta: Meta<typeof Banner> = {
-  title: 'Components/Banner',
-  component: Banner,
+const meta: Meta<typeof Callout> = {
+  title: 'Components/Callout',
+  component: Callout,
   parameters: {
     layout: 'padded',
   },
@@ -29,11 +29,11 @@ const meta: Meta<typeof Banner> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Banner>;
+type Story = StoryObj<typeof Callout>;
 
 // === CORE PRACTICAL PATTERNS ===
 
-// 4. Call-to-Action Banner (Government services)
+// 4. Call-to-Action Callout (Government services)
 export const Default: Story = {
   args: {
     type: 'default',
@@ -44,7 +44,7 @@ export const Default: Story = {
   },
 };
 
-// 1. Visa Status Banners (Most common use case)
+// 1. Visa Status Callouts (Most common use case)
 export const Success: Story = {
   args: {
     type: 'success',
@@ -90,7 +90,7 @@ export const Info: Story = {
   },
 };
 
-// 4. Call-to-Action Banner (Government services)
+// 4. Call-to-Action Callout (Government services)
 export const WithCTA: Story = {
   args: {
     type: 'default',
@@ -149,7 +149,7 @@ export const Dismissible: Story = {
       size: 'md',
     },
 
-    onDismiss: () => alert('Banner dismissed!'),
+    onDismiss: () => alert('Callout dismissed!'),
     titleSize: 'lg',
     icon: true,
   },

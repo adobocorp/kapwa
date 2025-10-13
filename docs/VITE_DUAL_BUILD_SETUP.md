@@ -15,7 +15,7 @@ This project uses **two separate Vite configurations** to produce two distinct b
 
 ```
 /dist                    → Component library (for npm consumers)
-  /banner
+  /callout
     - index.tsx.js
     - index.tsx.cjs
     - index.d.ts
@@ -40,9 +40,9 @@ This project uses **two separate Vite configurations** to produce two distinct b
 kapwa/
 ├── src/
 │   ├── kapwa/              # Library components (exported)
-│   │   ├── banner/
+│   │   ├── callout/
 │   │   │   ├── index.tsx
-│   │   │   └── Banner.stories.tsx
+│   │   │   └── callout.stories.tsx
 │   │   ├── button/
 │   │   │   ├── index.tsx
 │   │   │   └── Button.stories.tsx
@@ -288,7 +288,7 @@ This script runs after the library build to:
 
 ```
 src/kapwa/
-  ├── banner/
+  ├── callout/
   │   ├── index.tsx          ✓ Main component
   │   ├── types/
   │   │   └── index.ts       ✓ Sub-export
@@ -307,7 +307,7 @@ src/kapwa/
 export * from './lib/utils';
 
 // Components
-export * from './kapwa/banner';
+export * from './kapwa/callout';
 export * from './kapwa/button';
 ```
 
@@ -326,29 +326,29 @@ export * from './kapwa/button';
       "require": "./dist/utils.cjs",
       "types": "./dist/utils.d.ts"
     },
-    "./banner": {
-      "import": "./dist/banner/index.tsx.js",
-      "require": "./dist/banner/index.tsx.cjs",
-      "types": "./dist/banner/index.d.ts"
+    "./callout": {
+      "import": "./dist/callout/index.tsx.js",
+      "require": "./dist/callout/index.tsx.cjs",
+      "types": "./dist/callout/index.d.ts"
     },
-    "./banner/types": {
-      "import": "./dist/banner/types/index.ts.js",
-      "require": "./dist/banner/types/index.ts.cjs",
-      "types": "./dist/banner/types/index.d.ts"
+    "./callout/types": {
+      "import": "./dist/callout/types/index.ts.js",
+      "require": "./dist/callout/types/index.ts.cjs",
+      "types": "./dist/callout/types/index.d.ts"
     },
-    "./banner/hooks": {
-      "import": "./dist/banner/hooks/index.ts.js",
-      "require": "./dist/banner/hooks/index.ts.cjs",
-      "types": "./dist/banner/hooks/index.d.ts"
+    "./callout/hooks": {
+      "import": "./dist/callout/hooks/index.ts.js",
+      "require": "./dist/callout/hooks/index.ts.cjs",
+      "types": "./dist/callout/hooks/index.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       ".": ["./dist/index.d.ts"],
       "utils": ["./dist/utils.d.ts"],
-      "banner": ["./dist/banner/index.d.ts"],
-      "banner/types": ["./dist/banner/types/index.d.ts"],
-      "banner/hooks": ["./dist/banner/hooks/index.d.ts"]
+      "callout": ["./dist/callout/index.d.ts"],
+      "callout/types": ["./dist/callout/types/index.d.ts"],
+      "callout/hooks": ["./dist/callout/hooks/index.d.ts"]
     }
   }
 }
@@ -365,9 +365,9 @@ export const ALLOWED_SUBDIRECTORIES = ['hooks', 'types', 'utils'];
 If a component has these subdirectories with `index.ts(x)` files, they become importable:
 
 ```javascript
-import { Banner } from '@bettergov/kapwa/banner';
-import { useBanner } from '@bettergov/kapwa/banner/hooks';
-import type { BannerProps } from '@bettergov/kapwa/banner/types';
+import { callout } from '@bettergov/kapwa/callout';
+import { usecallout } from '@bettergov/kapwa/callout/hooks';
+import type { calloutProps } from '@bettergov/kapwa/callout/types';
 ```
 
 #### Output Example
@@ -382,9 +382,9 @@ When you run `npm run build-lib`, you'll see:
   ✓ ./utils
 
 🔍 Scanning components in src/kapwa/...
-  ✓ banner
-    └─ banner/types
-    └─ banner/hooks
+  ✓ callout
+    └─ callout/types
+    └─ callout/hooks
   ✓ button
   ✓ card
 
@@ -456,23 +456,23 @@ The `exports` and `typesVersions` fields are **automatically generated** by the 
       "require": "./dist/utils.cjs",
       "types": "./dist/utils.d.ts"
     },
-    "./banner": {
-      "import": "./dist/banner/index.tsx.js",
-      "require": "./dist/banner/index.tsx.cjs",
-      "types": "./dist/banner/index.d.ts"
+    "./callout": {
+      "import": "./dist/callout/index.tsx.js",
+      "require": "./dist/callout/index.tsx.cjs",
+      "types": "./dist/callout/index.d.ts"
     },
-    "./banner/types": {
-      "import": "./dist/banner/types/index.ts.js",
-      "require": "./dist/banner/types/index.ts.cjs",
-      "types": "./dist/banner/types/index.d.ts"
+    "./callout/types": {
+      "import": "./dist/callout/types/index.ts.js",
+      "require": "./dist/callout/types/index.ts.cjs",
+      "types": "./dist/callout/types/index.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       ".": ["./dist/index.d.ts"],
       "utils": ["./dist/utils.d.ts"],
-      "banner": ["./dist/banner/index.d.ts"],
-      "banner/types": ["./dist/banner/types/index.d.ts"]
+      "callout": ["./dist/callout/index.d.ts"],
+      "callout/types": ["./dist/callout/types/index.d.ts"]
     }
   }
 }
@@ -484,17 +484,17 @@ Consumers can import your library in multiple ways:
 
 ```javascript
 // 1. Barrel import (all components)
-import { Banner, Button, Card } from '@bettergov/kapwa';
+import { callout, Button, Card } from '@bettergov/kapwa';
 
 // 2. Individual component (tree-shakable)
-import { Banner } from '@bettergov/kapwa/banner';
+import { callout } from '@bettergov/kapwa/callout';
 
 // 3. Component utilities
 import { cn } from '@bettergov/kapwa/utils';
 
 // 4. Component sub-exports
-import { useBanner } from '@bettergov/kapwa/banner/hooks';
-import type { BannerProps } from '@bettergov/kapwa/banner/types';
+import { usecallout } from '@bettergov/kapwa/callout/hooks';
+import type { calloutProps } from '@bettergov/kapwa/callout/types';
 ```
 
 **Benefits**:
@@ -632,8 +632,8 @@ Clear separation between:
 Enables tree-shaking for consumers:
 
 ```javascript
-// Only bundles Banner code
-import { Banner } from '@bettergov/kapwa/banner';
+// Only bundles callout code
+import { callout } from '@bettergov/kapwa/callout';
 ```
 
 ---

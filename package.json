@@ -131,10 +131,10 @@
       "types": "./dist/utils.d.ts",
       "require": "./dist/utils.cjs"
     },
-    "./banner": {
-      "import": "./dist/banner/index.tsx.js",
-      "types": "./dist/banner/index.d.ts",
-      "require": "./dist/banner/index.tsx.cjs"
+    "./callout": {
+      "import": "./dist/callout/index.tsx.js",
+      "types": "./dist/callout/index.d.ts",
+      "require": "./dist/callout/index.tsx.cjs"
     },
     "./button": {
       "import": "./dist/button/index.tsx.js",
@@ -170,8 +170,8 @@
       "utils": [
         "./dist/utils.d.ts"
       ],
-      "banner": [
-        "./dist/banner/index.d.ts"
+      "callout": [
+        "./dist/callout/index.d.ts"
       ],
       "button": [
         "./dist/button/index.d.ts"

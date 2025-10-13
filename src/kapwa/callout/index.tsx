@@ -2,12 +2,12 @@ import React from 'react';
 import { cn } from '@lib/utils';
 import { Button } from '../button';
 
-export type BannerType = 'info' | 'warning' | 'error' | 'success' | 'default';
+export type CalloutType = 'info' | 'warning' | 'error' | 'success' | 'default';
 
-export interface BannerProps {
+export interface CalloutProps {
   title?: string;
   description: string;
-  type?: BannerType;
+  type?: CalloutType;
   icon?: boolean;
   cta?:
     | {
@@ -29,7 +29,7 @@ export interface BannerProps {
   titleSize?: 'sm' | 'md' | 'lg';
 }
 
-const Banner: React.FC<BannerProps> = ({
+const Callout: React.FC<CalloutProps> = ({
   title,
   description,
   type = 'default',
@@ -220,7 +220,7 @@ const Banner: React.FC<BannerProps> = ({
     );
   };
 
-  // CTA button (for banner with button layout)
+  // CTA button (for callout with button layout)
   if (cta) {
     const ctaArray = Array.isArray(cta) ? cta : [cta];
 
@@ -261,7 +261,7 @@ const Banner: React.FC<BannerProps> = ({
                 <button
                   onClick={onDismiss}
                   className='absolute top-2 right-2 md:relative md:top-auto md:right-auto rounded-md p-2 transition-colors hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2'
-                  aria-label='Dismiss banner'
+                  aria-label='Dismiss callout'
                 >
                   <svg
                     className='w-4 h-4 opacity-60'
@@ -283,7 +283,7 @@ const Banner: React.FC<BannerProps> = ({
     );
   }
 
-  // Standard banner layout (with or without icon)
+  // Standard callout layout (with or without icon)
   return (
     <div
       className={cn(
@@ -296,7 +296,7 @@ const Banner: React.FC<BannerProps> = ({
         <button
           onClick={onDismiss}
           className='absolute top-2 right-2 md:relative md:top-auto md:right-auto md:flex md:items-center md:justify-end md:ml-3 flex-shrink-0 rounded-md p-2 transition-colors hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2'
-          aria-label='Dismiss banner'
+          aria-label='Dismiss callout'
         >
           <svg
             className='w-4 h-4 opacity-60'
@@ -345,4 +345,4 @@ const Banner: React.FC<BannerProps> = ({
   );
 };
 
-export { Banner };
+export { Callout };

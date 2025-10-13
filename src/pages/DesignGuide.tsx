@@ -395,14 +395,14 @@ const DesignGuide: React.FC = () => {
           <CardHeader>
             <h2 className='text-2xl font-semibold'>CivicTech Components</h2>
             <p className='text-gray-800'>
-              Banner and call-to-action components for community engagement
+              Callout and call-to-action components for community engagement
             </p>
           </CardHeader>
           <CardContent>
             <div className='space-y-8'>
-              {/* Strip Banner */}
+              {/* Strip Callout */}
               <div>
-                <h3 className='font-medium mb-4'>Strip Banner</h3>
+                <h3 className='font-medium mb-4'>Strip Callout</h3>
                 <div className='relative overflow-hidden bg-linear-to-r from-orange-500 via-red-500 to-pink-500 text-white py-3 rounded-lg'>
                   <div className='container mx-auto px-4'>
                     <div className='flex flex-col sm:flex-row items-center justify-between gap-2'>
@@ -428,9 +428,9 @@ const DesignGuide: React.FC = () => {
                 </div>
               </div>
 
-              {/* Full Banner */}
+              {/* Full Callout */}
               <div>
-                <h3 className='font-medium mb-4'>Full CivicTech Banner</h3>
+                <h3 className='font-medium mb-4'>Full CivicTech Callout</h3>
                 <div className='relative overflow-hidden bg-linear-to-br from-orange-500 via-red-500 to-pink-600 text-white py-12 rounded-lg'>
                   <div className='container mx-auto px-4 text-center'>
                     <h2 className='text-2xl md:text-3xl font-bold mb-4'>
